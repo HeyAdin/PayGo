@@ -10,7 +10,7 @@ function userAuth(req,res,next){
     const token = header.split(" ")[1];
     try{
         const decoded = jwt.verify(token,process.env.JWT_SECRET);
-        req.userId = decoded;
+        req.userId = decoded.userId;
         next()
     }
     catch(e){
