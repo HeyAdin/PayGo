@@ -14,6 +14,6 @@ export function Signup(){
         <InputBox inputHeading={"Email"} type={"email"} placeholder={"Email"} required={true}/>
         <InputBox inputHeading={"Password"} type={"password"} placeholder={"Password"} required={true}/>
         <Buttons buttonText={"Sign Up"} onClick={()=>{}}/>
-        <BottomWarning Warning={"Already have an account? "} link={<a onClick={()=> navigate('/sigin')}>Sign in</a>} />
+        <BottomWarning Warning={"Already have an account? "} link={<a className="text-[#EDB249]" onClick={()=> navigate('/signin')}>Sign in</a>} />
     </div>
 } 
