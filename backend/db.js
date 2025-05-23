@@ -19,6 +19,12 @@ const accountSchema = new mongoose.Schema({
     },
     balance :{
         type : Number,
+         validate: {
+        validator: function (amount) {
+          return amount >= 0;
+        },
+        message: (props) => `${props.value} is not a positive number!`,
+      },
         require : true
     } 
 })
