@@ -53,7 +53,7 @@ export function Signup() {
         }} inputHeading={"Password"} type={"password"} placeholder={"Password"} required={true} />
 
         <Buttons buttonText={"Sign Up"} onClick={async () => {
-            const response = await axios.post('http://localhost:3000/api/v1/user/signup', {
+            const response = await axios.post('https://paygo.onrender.com/api/v1/user/signup', {
                 firstName,
                 lastName,
                 email,

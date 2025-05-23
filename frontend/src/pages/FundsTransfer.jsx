@@ -24,7 +24,7 @@ export function FundsTransfer() {
             }, 500);
         }} />
         <Buttons buttonText={"Transfer Funds"} onClick={async () => {
-            const response = await axios.post("http://localhost:3000/api/v1/accounts/transfer", {
+            const response = await axios.post("https://paygo.onrender.com/api/v1/accounts/transfer", {
                 to: id,
                 amount
 

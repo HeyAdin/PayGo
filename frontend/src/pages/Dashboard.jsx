@@ -18,20 +18,20 @@ export function Dashboard() {
     const [currentUser, setCurrentUser] = useState("")
     const [allUsers, setAllUsers] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:3000/api/v1/accounts/balance', {
+        axios.get('https://paygo.onrender.com/api/v1/accounts/balance', {
             headers: { authorization: `Bearer ${localStorage.getItem('token')}` }
         }).then((response) => {
             setBalance(response.data.balance);
         });
 
-        axios.get('http://localhost:3000/api/v1/user/my-profile', {
+        axios.get('https://paygo.onrender.com/api/v1/user/my-profile', {
             headers: { authorization: `Bearer ${localStorage.getItem('token')}` }
         }).then((response) => {
             setCurrentUser(response.data.firstName);
         })
 
 
-        axios.get('http://localhost:3000/api/v1/user/all-user', {
+        axios.get('https://paygo.onrender.com/api/v1/user/all-user', {
             headers: { authorization: `Bearer ${localStorage.getItem('token')}` }
         }).then((response) => {
             setAllUsers(response.data.friends);
