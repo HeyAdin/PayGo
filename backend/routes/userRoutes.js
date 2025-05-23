@@ -95,7 +95,7 @@ router.get('/bulk',userAuth,async(req,res)=>{
     }) 
     res.json({msg:filteredUser});
 })
-router.get('my-profile',userAuth,async(req,res)=>{
+router.get('/my-profile',userAuth,async(req,res)=>{
     const myProfile = await User.findOne({_id:req.userId});
     if(!myProfile){
         res.status(400).json({msg:"user not found"});
@@ -104,7 +104,7 @@ router.get('my-profile',userAuth,async(req,res)=>{
     res.status(200).json({firstName : myProfile.firstName})
 })
 
-router.get('all-user',userAuth,async(req,res)=>{
+router.get('/all-user',userAuth,async(req,res)=>{
     const allUser = await User.find();
     if(!allUser){
         res.status(404).json({msg:"no users found"});

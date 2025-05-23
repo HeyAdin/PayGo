@@ -35,7 +35,6 @@ export function Dashboard() {
             headers: { authorization: `Bearer ${localStorage.getItem('token')}` }
         }).then((response) => {
             setAllUsers(response.data.friends);
-            console.log(response.data.friends)
         })
     }, [])
     return (<motion.div
