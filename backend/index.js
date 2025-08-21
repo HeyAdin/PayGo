@@ -1,12 +1,19 @@
+const dotenv = require('dotenv').config();
 const express = require('express');
 const app = express();
+const mainRoutes = require('./routes');
+const connectDB = require('./db');
 const cors = require('cors');
-const routes = require('./routes/index');
-require('dotenv').config();
-const PORT = process.env.PORT
-app.use(express.json(),cors());
-app.use('/api/v1/',routes);
 
-app.listen(PORT,()=>{
-    console.log(`server is listening on port ${PORT}`);
-})
+app.use(express.json());
+app.use(cors({
+    origin: '*', // Adjust this to your needs
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.use('/api/v1', mainRoutes);
+
+app.listen(process.env.PORT, async () => {
+    await connectDB();
+    console.log('Server is running on port http://localhost:' + process.env.PORT);
+});
